@@ -1,10 +1,56 @@
 📦 Containers vs 🖥️ Virtual Machines — Full Summary
+
 🧱 WHAT IS CONTAINERIZATION?
 Containerization is a lightweight virtualization technique where applications run in isolated user spaces, but share the host’s OS kernel.
 
 Containers include only what's needed to run: the app code, dependencies, and config.
 
 Tools: Docker, Podman, containerd, etc.
+
+Comparison Table
+Virtual Machine (VM) vs Containerization:
+- OS Layer: VM: Full OS with kernel
+ Container: Shares host kernel, no separate OS
+- Resource Usage: VM: Heavy Container: Lightweight
+- Startup Time: VM: Slow Container: Fast
+- Isolation: VM: Full system-level Container: Process-level
+- Image Size: VM: Large (GBs) Container: Small (MBs)
+- Performance: VM: Slower Container: Near-native
+- Use Case: VM: Full OS, legacy systems Container: Microservices, CI/CD On Ubuntu (Linux Host) 
+
+Containerization vs Virtual Machine - Summary
+- Docker runs natively, no VM required.
+- Containers use the host's Linux kernel directly.
+- Very efficient and fast.
+On Windows (Windows Host)
+- Windows does not have a Linux kernel.
+- Docker creates a lightweight Linux VM via WSL2 or Hyper-V.
+- Linux Containers => Needs VM
+- Windows Containers => No VM required (uses Windows kernel)
+- Switch modes using Docker Desktop (Linux <-> Windows)
+Do Containers Install a Full OS Inside?
+- No, containers do not install a full OS.
+- Only user-space (bash, tools, libraries) is included.
+- Kernel is always from host.
+
+Windows vs Linux Container Images
+
+Linux Container Images:
+- Examples: ubuntu, alpine, nginx, node:18, mysql
+- Requires Linux kernel (or VM on Windows)
+
+Windows Container Images:
+- Examples: mcr.microsoft.com/windows/servercore, IIS, .NET
+- Runs on Windows kernel natively
+
+TL;DR Recap
+- Containers = lightweight, share kernel
+- VMs = full OS, heavier
+- Linux host = native containers
+
+Containerization vs Virtual Machine - Summary
+- Windows host = VM for Linux, native for Windows containers
+- Container images full OS
 
 🖥️ WHAT IS A VIRTUAL MACHINE?
 A Virtual Machine (VM) is a full-blown operating system running on virtualized hardware, completely isolated from the host via a hypervisor.
